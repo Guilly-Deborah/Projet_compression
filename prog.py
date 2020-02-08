@@ -146,12 +146,12 @@ class Tree:
     def index_deux_mini(self,liste):
         '''
         Retourne les index des deux plus petit element d'un liste
-        La frequence du premier element est inferieur ou egale a celle du second elemtn
+        La frequence du premier element est inferieur ou egale a celle du second element
         '''
         #Initialisation des variables
         index_mini1=0
         index_mini2=1
-        #Si a l'initialisation, les elemnt sont inverser
+        #Si a l'initialisation, les element sont inverser
         if liste[index_mini2].get_frequence()<liste[index_mini1].get_frequence():
             index_mini2,index_mini1=index_mini1,index_mini2
         #Parcour du reste de la liste
@@ -191,7 +191,7 @@ class Tree:
         while len(liste_racine)!=1:
             #Tri de la liste des noeuds selon la frequence
             liste_trier=self.tribulle(liste_racine)
-            #Recuperation de index des deux elemnt avec les plus petites frequences
+            #Recuperation de index des deux element avec les plus petites frequences
             (index_gauche,index_droit)=self.index_deux_mini(liste_trier)
             #Calcul de la nouvelle frequence
             new_freq=liste_trier[index_gauche].get_frequence()+liste_trier[index_droit].get_frequence()
@@ -240,134 +240,11 @@ class Tree:
             if chemin[i+1]==chemin[i].get_fil_gauche():
                 code+='0'
             #Sinon on ajout 1 au code
-            else:
+            elif chemin[i+1]==chemin[i].get_fil_droit():
                 code+='1'
             i+=1
         return code
-    
-#    def parcour_profondeur(self,liste_noeuds,element):
-#        chemin=[]
-#        if len(liste_noeuds)!=0:
-#            f=Forest(liste_noeuds)
-#            return f.parcour_profondeur(chemin,element)
-#        else:
-#            return chemin
-    
-#    def get_fils_gauche(self):
-#        '''
-#        Retourne le fil gauche d'un noeud
-#        '''
-#        return self.fil_gauche
-#    
-#    def get_fils_droit(self):
-#        '''
-#        Retourne le fil droit d'un noeud
-#        '''
-#        return self.fil_droit
-#    
-#class Forest(list):
-#    
-#    def firstTree(self):
-#        '''
-#        Retourne la racine de la premiere aborescence
-#        '''
-#        return self[0]
-##    
-##    def secondTree(self):
-##        '''
-##        Retourne la racine de la seconde aborescence
-##        '''
-##        return self[1]
-##    
-#    def rest(self,retirer1,retirer2,retirer3):
-#        '''
-#        Donne une liste sans les deux elements retirer1 et retirer2
-#        '''
-#        #Initialisation
-#        R=[]
-#        #Parcours de tous les elements de la foret
-#        for i in self:
-#            #Si ce n'est pas un des elements a retirer
-#            if i!=retirer1 and i!=retirer2  and i!=retirer3:
-#                R+=[i]
-#        return R
-#    
-#    def parcour_profondeur(self,chemin,element):
-#        if self==[]:
-#            return chemin
-#        else:
-#            n=self.firstTree()
-#            chemin+=[n]
-#            st1=self.firstTree().get_fil_gauche()
-#            st2=self.firstTree().get_fil_droit()
-#            r=self.rest(st1,st2,n)
-#            f=Forest([st1]+[st2]+r)
-#            return f.parcour_profondeur(chemin,element)
-            
-        
 
-
-
-
-# =============================================================================
-# Ouverture du fichier name.txt
-# =============================================================================
-#name="bonj"
-##Ouverture du fichier test
-#fichier=open(name+".txt","r")
-##Recuperation du contenu
-#contenu=fichier.read()
-##Fermeture du fichier
-#fichier.close()
-##Appliquation a la classe Texte
-#text=Texte(contenu)
-#
-## =============================================================================
-## Creation du fichier name_freq.txt
-## =============================================================================
-##Creation de la liste des frequences associee au fichier
-#Freq=text.frequences()
-#
-##Creation du fichier
-#fichier_freq=open(name+"_freq.txt","w")
-##Ecriture de la taille de l'alphabet
-#fichier_freq.write(str(len(text.alphabet))+"\n")
-##Ecriture de chaque caracteres avec leurs frequences
-#for l in Freq:
-#    fichier_freq.write(str(l[0])+" "+str(l[1])+"\n")
-##Fermeture du fichier
-#fichier_freq.close()
-#
-## =============================================================================
-## Creation de l'arbre
-## =============================================================================
-#tree=Tree()
-#liste_feuilles=text.feuilles(Freq)
-##print('liste feuilles',liste_feuilles)
-#A=tree.arbre(liste_feuilles)
-##print('racine',A[0])
-##print('noeuds',A[1])
-## =============================================================================
-## recherche code pour un element ici 'b'
-## =============================================================================
-#chemin=tree.chemin('b',A[0],A[1])
-#print("chemin",chemin[0].get_frequence(),chemin[1].get_frequence(),chemin[2].get_frequence())
-#code=tree.codage('b',chemin)
-#print('code',code)
-#
-## =============================================================================
-## Code d'un texte
-## =============================================================================
-#code=''
-#for element in contenu:
-#    chemin=tree.chemin(element,A[0],A[1])
-#    code+=tree.codage(element,chemin)
-#while len(code)%8!=0:
-#    code+='0'
-#print('code_text',code)
-#fichier_bin=open(name+"_comp.bin","w")
-#fichier_bin.write(code)
-#fichier_bin.close()
 
 if  __name__=='__main__':
     name=input("nom du fichier :")
@@ -392,7 +269,7 @@ if  __name__=='__main__':
     for element in contenu:
         chemin=tree.chemin(element,A[0],A[1])
         code+=tree.codage(element,chemin)
-    #Rajout de zerto pour obtenir des octects
+    #Rajout de zero pour obtenir un resulat sous forme d'octets
     while len(code)%8!=0:
         code+='0'
         
@@ -405,6 +282,7 @@ if  __name__=='__main__':
         fichier_freq.write(str(l[0])+" "+str(l[1])+"\n")
     #Fermeture du fichier
     fichier_freq.close()
+
     #Creation du fichier compresse
     fichier_bin=open(name+"_comp.bin","w")
     #Ecriture du code dans le fichier
