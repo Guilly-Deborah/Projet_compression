@@ -10,6 +10,8 @@ De plus, les fichiers texte a compressé doivent être dans le même dossier que
 Documents fournis :
 
   -Le programme python
+  
+  -Un fichier texte bonj contenant "bonjour!!"
 
   -Un fichier texte contenant un texte simple
 
