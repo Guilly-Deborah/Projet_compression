@@ -7,10 +7,10 @@ Le code est créé dans le langage python et nécessite un environnement adapté
 
 Documents fournis :
 
--Le programme python
+   -Le programme python
 
--Un fichier texte contenant un texte simple
+  -Un fichier texte contenant un texte simple
 
--Un fichier texte contenant un extrait d'Alice aux pays des merveilles
+  -Un fichier texte contenant un extrait d'Alice aux pays des merveilles
 
--Un fichier texte contenant le texte d'Alice aux pays des merveilles
+  -Un fichier texte contenant le texte d'Alice aux pays des merveilles
