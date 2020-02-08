@@ -1,7 +1,7 @@
 # Projet_compression
-Ce dépôt est créé dans le cadre d'un cours de graphe.
-Le thème est la compression de données par codage de Huffman.
-Le code est créé dans le langage python et nécessite un environnement adapté à python pour être lancé.
+#Ce dépôt est créé dans le cadre d'un cours de graphe.
+#Le thème est la compression de données par codage de Huffman.
+#Le code est créé dans le langage python et nécessite un environnement adapté à python pour être lancé.
 
 Documents fournis :
 -Le programme python
