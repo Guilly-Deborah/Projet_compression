@@ -272,7 +272,7 @@ if  __name__=='__main__':
     #Rajout de zero pour obtenir un resulat sous forme d'octets
     while len(code)%8!=0:
         code+='0'
-        
+
     #Creation du fichier des frequences
     fichier_freq=open(name+"_freq.txt","w")
     #Ecriture de la taille de l'alphabet
@@ -283,9 +283,14 @@ if  __name__=='__main__':
     #Fermeture du fichier
     fichier_freq.close()
 
+    code_b=code.encode()
     #Creation du fichier compresse
-    fichier_bin=open(name+"_comp.bin","w")
+    fichier_bin=open(name+"_comp.bin","wb")
     #Ecriture du code dans le fichier
-    fichier_bin.write(code)
+    for e in code:
+        if e=='0':
+            fichier_bin.write(b'0')
+        else:
+            fichier_bin.write(b'1')
     #Fermeture du fichier
     fichier_bin.close()
