@@ -282,15 +282,17 @@ if  __name__=='__main__':
         fichier_freq.write(str(l[0])+" "+str(l[1])+"\n")
     #Fermeture du fichier
     fichier_freq.close()
-
-    code_b=code.encode()
+    
     #Creation du fichier compresse
     fichier_bin=open(name+"_comp.bin","wb")
     #Ecriture du code dans le fichier
-    for e in code:
-        if e=='0':
-            fichier_bin.write(b'0')
-        else:
-            fichier_bin.write(b'1')
+    for i in range(0,len(code),8):
+        bout_code=code[i:i+8]
+        nb=0
+        cpt=1
+        for l in bout_code:
+            nb+=(int(l)*2**(8-cpt))
+            cpt+=1
+        fichier_bin.write((nb).to_bytes(1,byteorder='big'))
     #Fermeture du fichier
     fichier_bin.close()
